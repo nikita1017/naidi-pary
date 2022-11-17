@@ -1,7 +1,7 @@
 let game = document.getElementById("game");
 let imgs = "";
 let heals = document.getElementById("heals");
-let serdze = 1;
+let serdze = 0;
 let images = [];
 for (let image = 0; image <= 11; image++) {
   images.push("img/0 " + "(" + image + ")" + ".jpg");
