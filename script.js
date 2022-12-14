@@ -1,16 +1,18 @@
 let game = document.getElementById("game");
-let imgs = "";
 let heals = document.getElementById("heals");
 let serdze = 0;
 let images = [];
 let opened = [];
+let win = document.getElementsByClassName("yaay")[0];
+let newGame = document.getElementById("new-game");
 let shetchik = 0;
+
 // opened.push("6");
 // opened[onclick] = 6;
 // console.log(opened);
 for (let image = 0; image <= 11; image++) {
   images.push("img/0 " + "(" + image + ")" + ".jpg");
-  images.push("img/0 " + "(" + image + ")" + ".jpg")
+  images.push("img/0 " + "(" + image + ")" + ".jpg");
 }
 for (let i = 0; i <= 23; i++) {
   // первый способ вывода нескольких фотографий
@@ -32,10 +34,11 @@ for (let i = 0; i <= 23; i++) {
         shetchik++;
         if(shetchik == 12){
           console.log("Победа, вы прошли игру");
+          win.style.opacity = "1";
         }
       }
       else{
-        let imgs = document.getElementsByTagName("img");
+        let imgs = game.getElementsByTagName("img");
         for(let imgControl = 0; imgControl <=23; imgControl++){
           console.log(imgs[imgControl]);
           imgs[imgControl].style.pointerEvents="none";
@@ -45,7 +48,10 @@ for (let i = 0; i <= 23; i++) {
           opened[1].src = "img/vopros.jpg";
           opened[0].style.pointerEvents = "auto";
           opened[1].style.pointerEvents = "auto";
-          for(let i=0; i>=24; i++){imgs[0].style.pointerEvents = "auto";}
+          for(let i=0; i<=23; i++){
+            imgs[i].style.pointerEvents = "auto"
+          
+          }
           opened = [];
         }, 1000);
       }
@@ -54,16 +60,32 @@ for (let i = 0; i <= 23; i++) {
     heals.innerHTML=("Попытки: " + serdze);
     let image = 0;
 
+
     // let imgs = document.getElementsByTagName("img");
     // for(let image = 0; image <= 23; image++){
     //   imgs[image].src = "img/0 ("+ i +").jpg";
     // }
   }
+  img.ondragstart=function(){
+    return false;
+  }
+  newGame.onclick=function(){      
+    serdze = 0;
+    heals.innerHTML=("Попытки: " + serdze);
 
-  // img.onclick=function(){
-  // images.src = "img/" + imgs;
-  // }
-}
+   for(let g=23; g>=0; g = g-1){
+      let random = Math.floor(Math.random() * (g+1));
+      let vremennya = images[g];
+      images[g]=images[random];
+      images[random]=vremennya;
+    }
+    let imgs=game.getElementsByTagName("img")
+    for(let i=0; i<=23; i++){
+      imgs[i].src = "img/vopros.jpg";
+    }
+      win.style.opacity = "0";
+  }
+} 
 for(let g=23; g>=0; g = g-1){
   let random = Math.floor(Math.random() * (g+1));
   let vremennya = images[g];

@@ -8,6 +8,26 @@ body
 {
     background-image: url("img/fon.png");
 }
+.yaay{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: 1s;
+}
+.new-game{
+    position: absolute;
+    padding: 15px;
+    background-color: aqua;
+    border-radius: 15px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 5px 5px 10px black;
+    right: 60px;
+    top: 60px;
+}
 h1, h3
 {
     font-family: 'Montserrat', sans-serif;
@@ -32,3 +52,12 @@ img{
     width: calc(100% / 6 - 10px);
     margin: 5px;
 }
+
+::-moz-selection { /* Code for Firefox */
+    background: rgba(255, 255, 0, 0);
+  }
+  
+  ::selection {
+    background: rgba(255, 255, 0, 0);
+  }
+  
